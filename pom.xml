@@ -15,13 +15,13 @@
         <dependency>
             <groupId>com.prowidesoftware</groupId>
             <artifactId>pw-iso20022</artifactId>
-            <version>SRU2021-9.2.6</version>
+            <version>SRU2021-9.2.8</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.prowidesoftware</groupId>
             <artifactId>pw-swift-core</artifactId>
-            <version>SRU2021-9.2.13</version>
+            <version>SRU2021-9.2.18</version>
             <scope>compile</scope>
         </dependency>
 
