@@ -1,7 +1,5 @@
 package com.prowidesoftware.swift.translations;
 
-import com.prowidesoftware.swift.validator.PreconditionError;
-
 import java.util.List;
 
 public interface Translator<S, T> {

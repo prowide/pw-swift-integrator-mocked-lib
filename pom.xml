@@ -10,18 +10,60 @@
     <name>Prowide-Integrator mocked lib</name>
     <url>https://www.prowidesoftware.com/</url>
 
+    <!--
+    <parent>
+        <groupId>org.mule.modules.prowide</groupId>
+        <artifactId>mule-pw-swift-integrator-connector</artifactId>
+        <version>1.0.46</version>
+    </parent>
+    -->
+
+<!--
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>-->
+
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <name>PW Nexus Repo</name>
+            <url>http://repo.prowidesoftware.com/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+<!--
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>-->
+
+
+
     <dependencies>
         <!-- Prowide Dependencies -->
         <dependency>
             <groupId>com.prowidesoftware</groupId>
             <artifactId>pw-iso20022</artifactId>
-            <version>SRU2021-9.2.8</version>
+            <!--<version>SRU2024-9.5.0</version>-->
+            <version>SRU2023-9.4.6</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.prowidesoftware</groupId>
             <artifactId>pw-swift-core</artifactId>
-            <version>SRU2021-9.2.18</version>
+            <version>SRU2023-9.4.9</version>
             <scope>compile</scope>
         </dependency>
 
@@ -46,47 +88,53 @@
 
     <build>
         <plugins>
+<!--            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+<!--            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.8.2</version>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
                 <executions>
                     <execution>
-                        <id>default-deploy</id>
-                        <phase>deploy</phase>
+                        <id>attach-javadocs</id>
                         <goals>
-                            <goal>deploy</goal>
+                            <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
-    <distributionManagement>
-        <repository>
-            <id>nexus-releases</id>
-            <url>http://repo.prowidesoftware.com/repository/maven-releases</url>
-        </repository>
-    </distributionManagement>
-
-    <repositories>
-        <repository>
-            <id>nexus-releases</id>
-            <name>nexus-releases</name>
-            <url>https://repo.prowidesoftware.com/repository/maven-releases</url>
-        </repository>
-        <repository>
-            <id>mule-soft</id>
-            <name>HTTPS Mirror Repository for Mule</name>
-            <url>https://repository.mulesoft.org/releases/</url>
-            <!-- mirrorOf>mulesoft-release</mirrorOf -->
-        </repository>
-    </repositories>
-
 
 </project>

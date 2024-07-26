@@ -4,6 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ValidationEngine {
+    ValidationConfiguration config;
+
+    public void setConfig(final ValidationConfiguration config) {
+        this.config = config;
+    }
+
+    public ValidationConfiguration getConfig() {
+        return config;
+    }
+
     public void initialize() {
     }
 
@@ -12,10 +22,6 @@ public class ValidationEngine {
     }
 
     public List<ValidationProblem> validateMxMessage(String xmlMessage) {
-        return null;
-    }
-
-    public ValidationConfiguration getConfig() {
         return null;
     }
 }
